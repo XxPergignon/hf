@@ -14,6 +14,8 @@ const material = new THREE.MeshStandardMaterial( {
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(20, 20, 20)
 
+scene.add(pointLight)
+
 const torus = new THREE.Mesh( geometry, material);
 function animate() {
   requestAnimationFrame( animate );
