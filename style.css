@@ -12,5 +12,19 @@ main {
   position: absolute;
   font-size: 69px;
   color: aquamarine;
-  opacity: 0.3;
+  opacity: 0.4;
+  display: grid;
+  text-align: center;
+}
+section{
+width: 50%;
+border: 0px;
+border-style: solid;
+background-color: gray;
+box-shadow: lightgray;
+align-items: center;
+margin-left: 25%;
+border-radius: 200px;
+margin-bottom: 100px;
+
 }
