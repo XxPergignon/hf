@@ -1,7 +1,9 @@
+import './style.css'
 import * as THREE from 'three';
 //Controls
 import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 //background
+
 function animate() {
   requestAnimationFrame( animate );
 
@@ -10,9 +12,13 @@ function animate() {
   torus.rotation.z += 0.01;
   earth.rotation.x += 0.001
   earth.rotation.y += 0.005
-
+  
   controls.update();
+
+  
   renderer.render( scene, camera );
+
+  
 }
 function addStar(){
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
@@ -40,10 +46,14 @@ const material = new THREE.MeshStandardMaterial( {
 //light
 const pointLight = new THREE.PointLight(0xffffff)
 pointLight.position.set(20, 20, 20)
-
 scene.add(pointLight)
+const lightHelper = new THREE.PointLightHelper(pointLight)
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper)
+
 Array(200).fill().forEach(addStar)
 //stars
+
 
 //bg
 
@@ -51,10 +61,6 @@ Array(200).fill().forEach(addStar)
 //torus
 const controls = new OrbitControls(camera, renderer.domElement);
 const torus = new THREE.Mesh( geometry, material);
-
-
-
-torus.position.z = -20;
 
 //earth
 
@@ -65,15 +71,23 @@ const earth = new THREE.Mesh(
   new THREE.MeshStandardMaterial({
     map: earthTextture,
   })
+  
 );
-earth.position.z = 10;
+
+earth.position.z = 20;
+
 scene.add(earth)
 scene.add(torus)
+scene.add(camera)
+earth.addEventListener( 'click', function () {
+
+  // Update the camera's position to focus on the mesh
+  camera.lookAt( earth.position );
+
+} );
+
 const spaceTexture = new THREE.TextureLoader().load('bg.jpg');
 scene.background = spaceTexture;
-
-
- animate()
-
+animate()
 
  

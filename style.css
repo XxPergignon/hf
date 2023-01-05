@@ -8,3 +8,9 @@ canvas#background {
   display: grid;
   width: 100%;
 }
+main {
+  position: absolute;
+  font-size: 69px;
+  color: aquamarine;
+  opacity: 0.3;
+}
