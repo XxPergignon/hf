@@ -3,7 +3,20 @@ import * as THREE from 'three';
 //Controls
 import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 //background
+function moveCAmera(){
+  const t = document.body.getBoundingClientRect().top;
+  torus.rotation.y += 0.01;
+  torus.rotation.z += 0.01;
+  earth.rotation.x += 0.05;
+  earth.rotation.y += 0.075;
+  earth.rotation.z += 0.05;
 
+  camera.position.x = t * -0.01
+  camera.position.y = t * -0.0002
+  camera.position.z = t * -0.0002
+}
+
+document.body.onscroll = moveCAmera
 function animate() {
   requestAnimationFrame( animate );
 
@@ -38,7 +51,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight );
-camera.position.setZ(30);
+
 const geometry =  new THREE.TorusGeometry( 10, 3, 16, 100 )
 const material = new THREE.MeshStandardMaterial( {
   color: 0xFF6347
@@ -74,7 +87,8 @@ const earth = new THREE.Mesh(
   
 );
 
-earth.position.z = 20;
+earth.position.z = 10
+earth.position.x = 20;
 
 scene.add(earth)
 scene.add(torus)
@@ -88,6 +102,23 @@ earth.addEventListener( 'click', function () {
 
 const spaceTexture = new THREE.TextureLoader().load('bg.jpg');
 scene.background = spaceTexture;
+
+document.getElementById('color-button').addEventListener('click', function() {
+
+
+  if (document.getElementById('color-palette').style.display === 'none') {
+    // show the button
+    document.getElementById('color-palette').style.display = 'flex';
+  } else {
+    // hide the button
+    document.getElementById('color-palette').style.display = 'none';
+  }
+});
+document.querySelectorAll('.color').forEach(function(color) {
+  color.addEventListener('click', function() {
+    document.getElementById('style').style.color = this.style.backgroundColor;
+  });
+});
 animate()
 
  

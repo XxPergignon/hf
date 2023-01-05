@@ -10,20 +10,46 @@ canvas#background {
 }
 main {
   position: absolute;
-  font-size: 69px;
-  color: aquamarine;
-  opacity: 0.4;
+  font-size: 35px;
+  color: white;
+  opacity: 0.7;
   display: grid;
   text-align: center;
+  width: 50%;
+  right: 25%;
+  
+}
+p {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+#color-palette{
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.color {
+  width: 20px; /* set the width of the color elements */
+  height: 20px; /* set the height of the color elements */
+  margin: 2px; /* add some space between the color elements */
+  border: 1px solid #ccc; /* add a border to the color elements */
+  cursor: pointer; /* show the pointer cursor when hovering over the color elements */
+}
+.head {
+  background-color: black;
+  border-radius: 98px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  padding: 60px;
 }
 section{
-width: 50%;
+width: 100%;
 border: 0px;
 border-style: solid;
-background-color: gray;
+background-color: black;
 box-shadow: lightgray;
 align-items: center;
-margin-left: 25%;
 border-radius: 200px;
 margin-bottom: 100px;
 
