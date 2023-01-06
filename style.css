@@ -17,13 +17,14 @@ main {
   text-align: center;
   width: 50%;
   right: 25%;
+  display: none;
   
 }
 p {
   margin-right: 200px;
   margin-left: 200px;
 }
-#color-palette{
+#color-palette {
   display: none;
   width: 100%;
   align-items: center;
@@ -43,14 +44,13 @@ p {
   margin-top: 50px;
   padding: 60px;
 }
-section{
-width: 100%;
-border: 0px;
-border-style: solid;
-background-color: black;
-box-shadow: lightgray;
-align-items: center;
-border-radius: 200px;
-margin-bottom: 100px;
-
+section {
+  width: 100%;
+  border: 0px;
+  border-style: solid;
+  background-color: black;
+  box-shadow: lightgray;
+  align-items: center;
+  border-radius: 200px;
+  margin-bottom: 100px;
 }
